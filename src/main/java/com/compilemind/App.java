@@ -4,7 +4,6 @@ import com.compilemind.asciigraph.base.Coordinate;
 import com.compilemind.asciigraph.base.Size;
 import com.compilemind.asciigraph.base.Symbol;
 import com.compilemind.asciigraph.canvas.Canvas;
-import com.compilemind.asciigraph.graph.AsciiGraphElement;
 import com.compilemind.asciigraph.graph.impl.Line;
 import com.compilemind.asciigraph.graph.impl.Rectangle;
 

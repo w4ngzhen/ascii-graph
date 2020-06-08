@@ -1,11 +1,11 @@
 package com.compilemind.asciigraph.graph.impl;
 
-import com.compilemind.asciigraph.graph.AsciiGraphElement;
+import com.compilemind.asciigraph.graph.CanvasElement;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Polygon extends AsciiGraphElement {
+public class Polygon extends CanvasElement {
 
     private final List<Line> lines;
 

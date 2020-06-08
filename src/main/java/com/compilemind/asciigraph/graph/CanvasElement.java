@@ -6,7 +6,7 @@ import com.compilemind.asciigraph.graph.impl.Point;
 
 import java.util.List;
 
-public abstract class AsciiGraphElement {
+public abstract class CanvasElement extends Element {
 
     protected Symbol border = Symbol.PLUS;
 

@@ -3,12 +3,12 @@ package com.compilemind.asciigraph.graph.impl;
 import com.compilemind.asciigraph.base.Coordinate;
 import com.compilemind.asciigraph.base.Symbol;
 import com.compilemind.asciigraph.util.MathUtil;
-import com.compilemind.asciigraph.graph.AsciiGraphElement;
+import com.compilemind.asciigraph.graph.CanvasElement;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Line extends AsciiGraphElement {
+public class Line extends CanvasElement {
 
     private final Coordinate begin;
 
@@ -31,5 +31,4 @@ public class Line extends AsciiGraphElement {
                 .map(coordinate -> Point.of(coordinate, this.border))
                 .collect(Collectors.toList());
     }
-
 }

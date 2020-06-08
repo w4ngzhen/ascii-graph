@@ -5,15 +5,27 @@ import com.compilemind.asciigraph.base.IntegerVector;
 import com.compilemind.asciigraph.graph.impl.Line;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public final class MathUtil {
 
-    public static Set<Coordinate> getCoordinatesBetween(Coordinate begin, Coordinate end) {
+    public static int intSqrt(int i1) {
+        return i1 * i1;
+    }
+
+    public static List<Coordinate> getCoordinatesBetween(Coordinate begin, Coordinate end) {
         IntegerVector vector = IntegerVector.of(begin, end);
         int maxCount = Math.max(Math.abs(vector.getX()), Math.abs(vector.getY())) + 1; // +1是因为起始点自身也是一个
         Set<Coordinate> coordinates = new HashSet<>(maxCount);
         getCoordinatesBetween(coordinates, begin, end);
-        return coordinates;
+        return coordinates
+                .stream()
+                .sorted(Comparator.comparingInt(coordinate -> {
+                    int vecX = coordinate.getX() - begin.getX();
+                    int vecY = coordinate.getY() - begin.getY();
+                    return MathUtil.intSqrt(vecX) + MathUtil.intSqrt(vecY);
+                }))
+                .collect(Collectors.toList());
     }
 
     private static void getCoordinatesBetween(Set<Coordinate> coordinates, Coordinate begin, Coordinate end) {
@@ -25,7 +37,7 @@ public final class MathUtil {
             coordinates.add(Coordinate.of(end));
             return;
         }
-        Coordinate mid = Coordinate.of((begin.getX() + end.getX())/ 2, (begin.getY() + end.getY()) / 2);
+        Coordinate mid = Coordinate.of((begin.getX() + end.getX()) / 2, (begin.getY() + end.getY()) / 2);
         getCoordinatesBetween(coordinates, begin, mid);
         getCoordinatesBetween(coordinates, mid, end);
     }

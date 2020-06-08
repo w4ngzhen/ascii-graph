@@ -3,15 +3,14 @@ package com.compilemind.asciigraph.graph.impl;
 import com.compilemind.asciigraph.base.Coordinate;
 import com.compilemind.asciigraph.base.Size;
 import com.compilemind.asciigraph.base.Symbol;
-import com.compilemind.asciigraph.graph.AsciiGraphElement;
+import com.compilemind.asciigraph.graph.CanvasElement;
 import com.compilemind.asciigraph.util.MathUtil;
-import com.compilemind.asciigraph.util.StringUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Rectangle extends AsciiGraphElement {
+public class Rectangle extends CanvasElement {
 
     private Coordinate location;
 

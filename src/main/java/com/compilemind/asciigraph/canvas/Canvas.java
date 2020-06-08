@@ -3,7 +3,7 @@ package com.compilemind.asciigraph.canvas;
 import com.compilemind.asciigraph.base.Coordinate;
 import com.compilemind.asciigraph.base.Size;
 import com.compilemind.asciigraph.base.Symbol;
-import com.compilemind.asciigraph.graph.AsciiGraphElement;
+import com.compilemind.asciigraph.graph.CanvasElement;
 import com.compilemind.asciigraph.graph.impl.Point;
 import com.compilemind.asciigraph.util.StringUtil;
 
@@ -13,7 +13,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 
-public abstract class Canvas {
+public class Canvas {
 
     protected Size size;
 
@@ -23,19 +23,19 @@ public abstract class Canvas {
 
     protected PrintStream printStream;
 
-    protected List<AsciiGraphElement> elements;
+    protected List<CanvasElement> elements;
 
     protected char[][] canvas;
 
     protected Canvas() {
     }
 
-    public void addElement(AsciiGraphElement element) {
+    public void addElement(CanvasElement element) {
         Objects.requireNonNull(element, "element should not be null");
         this.elements.add(element);
     }
 
-    public void addElements(Collection<AsciiGraphElement> elements) {
+    public void addElements(Collection<CanvasElement> elements) {
         Objects.requireNonNull(elements, "elements should not be null");
         this.elements.addAll(elements);
     }
@@ -90,7 +90,7 @@ public abstract class Canvas {
         protected Symbol border;
         protected Symbol background;
         protected PrintStream printStream;
-        protected List<AsciiGraphElement> elements;
+        protected List<CanvasElement> elements;
 
         private CanvasBuilder() {
             this.size = Size.of(30 ,30);
@@ -124,13 +124,13 @@ public abstract class Canvas {
             return this;
         }
 
-        public CanvasBuilder elements(List<AsciiGraphElement> elements) {
+        public CanvasBuilder elements(List<CanvasElement> elements) {
             this.elements = elements;
             return this;
         }
 
         public Canvas build() {
-            Canvas canvas = new AsciiCanvas();
+            Canvas canvas = new Canvas();
             canvas.size = Size.of(30 ,30);
             canvas.elements = this.elements;
             canvas.printStream = this.printStream;

@@ -2,12 +2,12 @@ package com.compilemind.asciigraph.graph.impl;
 
 import com.compilemind.asciigraph.base.Coordinate;
 import com.compilemind.asciigraph.base.Symbol;
-import com.compilemind.asciigraph.graph.AsciiGraphElement;
+import com.compilemind.asciigraph.graph.CanvasElement;
 
 import java.util.Collections;
 import java.util.List;
 
-public class Point extends AsciiGraphElement {
+public class Point extends CanvasElement {
 
     private final Coordinate coordinate;
 
