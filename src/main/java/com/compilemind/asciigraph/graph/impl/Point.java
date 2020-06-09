@@ -2,6 +2,7 @@ package com.compilemind.asciigraph.graph.impl;
 
 import com.compilemind.asciigraph.base.Coordinate;
 import com.compilemind.asciigraph.base.Symbol;
+import com.compilemind.asciigraph.canvas.Render;
 import com.compilemind.asciigraph.graph.CanvasElement;
 
 import java.util.Collections;
@@ -49,6 +50,11 @@ public class Point extends CanvasElement {
     @Override
     public List<Point> getPoints() {
         return Collections.singletonList(this);
+    }
+
+    @Override
+    public void draw(Render render) {
+        render.draw(this);
     }
 
 }

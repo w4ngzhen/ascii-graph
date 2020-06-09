@@ -1,5 +1,6 @@
 package com.compilemind.asciigraph.graph.impl;
 
+import com.compilemind.asciigraph.canvas.Render;
 import com.compilemind.asciigraph.graph.CanvasElement;
 
 import java.util.List;
@@ -23,5 +24,10 @@ public class Polygon extends CanvasElement {
                 .stream()
                 .flatMap(line -> line.getPoints().stream())
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public void draw(Render render) {
+        this.getPoints().forEach(render::draw);
     }
 }

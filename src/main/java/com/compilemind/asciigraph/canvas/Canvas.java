@@ -51,19 +51,22 @@ public class Canvas {
         }
     }
 
-    public void render() {
-        this.elements.forEach(element -> element.renderAt(this));
+    public void draw() {
+        Render render = new Render(this);
+        this.elements.forEach(element -> element.draw(render));
     }
 
-    public void render(List<Point> points) {
-        CanvasArea canvasArea = new CanvasArea(Coordinate.of(), Size.of(this.size));
-        points.forEach(point -> {
-            Coordinate pointLocation = point.getCoordinate();
-            if (canvasArea.include(pointLocation)) {
-                this.canvas[pointLocation.getY()][pointLocation.getX()] = point.getContent().getSymbol();
-            }
-        });
+    void render(Point point) {
+        render(point.getCoordinate(), point.getContent().getSymbol());
     }
+
+    void render(Coordinate coordinate, char content) {
+        CanvasArea canvasArea = new CanvasArea(Coordinate.of(), Size.of(this.size));
+        if (canvasArea.include(coordinate)) {
+            this.canvas[coordinate.getY()][coordinate.getX()] = content;
+        }
+    }
+
 
     public void print() {
         String interval = "";

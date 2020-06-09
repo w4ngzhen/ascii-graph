@@ -2,6 +2,7 @@ package com.compilemind.asciigraph.graph;
 
 import com.compilemind.asciigraph.base.Symbol;
 import com.compilemind.asciigraph.canvas.Canvas;
+import com.compilemind.asciigraph.canvas.Render;
 import com.compilemind.asciigraph.graph.impl.Point;
 
 import java.util.List;
@@ -30,7 +31,5 @@ public abstract class CanvasElement extends Element {
 
     public abstract List<Point> getPoints();
 
-    public void renderAt(Canvas canvas) {
-        canvas.render(this.getPoints());
-    }
+    public abstract void draw(Render render);
 }

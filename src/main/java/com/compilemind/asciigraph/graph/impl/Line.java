@@ -2,6 +2,7 @@ package com.compilemind.asciigraph.graph.impl;
 
 import com.compilemind.asciigraph.base.Coordinate;
 import com.compilemind.asciigraph.base.Symbol;
+import com.compilemind.asciigraph.canvas.Render;
 import com.compilemind.asciigraph.util.MathUtil;
 import com.compilemind.asciigraph.graph.CanvasElement;
 
@@ -30,5 +31,10 @@ public class Line extends CanvasElement {
                 .stream()
                 .map(coordinate -> Point.of(coordinate, this.border))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public void draw(Render render) {
+        this.getPoints().forEach(render::draw);
     }
 }

@@ -8,7 +8,7 @@ import com.compilemind.asciigraph.graph.impl.Line;
 import com.compilemind.asciigraph.graph.impl.Rectangle;
 
 /**
- * Hello world!
+ * Portal
  */
 public class App {
     public static void main(String[] args) {
@@ -20,7 +20,9 @@ public class App {
         rectangle.setBackground(Symbol.ASTERISK);
         canvas.addElement(rectangle);
         canvas.addElement(line);
-        canvas.render();
+        canvas.draw();
         canvas.print();
+        System.out.println(line);
+        System.out.println(rectangle);
     }
 }

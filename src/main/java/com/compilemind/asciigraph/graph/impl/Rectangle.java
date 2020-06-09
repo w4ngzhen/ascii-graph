@@ -3,6 +3,7 @@ package com.compilemind.asciigraph.graph.impl;
 import com.compilemind.asciigraph.base.Coordinate;
 import com.compilemind.asciigraph.base.Size;
 import com.compilemind.asciigraph.base.Symbol;
+import com.compilemind.asciigraph.canvas.Render;
 import com.compilemind.asciigraph.graph.CanvasElement;
 import com.compilemind.asciigraph.util.MathUtil;
 
@@ -89,5 +90,10 @@ public class Rectangle extends CanvasElement {
                 .collect(Collectors.toList());
         points.addAll(borderPoints);
         return points;
+    }
+
+    @Override
+    public void draw(Render render) {
+        this.getPoints().forEach(render::draw);
     }
 }
