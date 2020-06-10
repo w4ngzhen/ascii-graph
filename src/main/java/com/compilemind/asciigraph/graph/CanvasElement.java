@@ -1,7 +1,6 @@
 package com.compilemind.asciigraph.graph;
 
 import com.compilemind.asciigraph.base.Symbol;
-import com.compilemind.asciigraph.canvas.Canvas;
 import com.compilemind.asciigraph.canvas.Render;
 import com.compilemind.asciigraph.graph.impl.Point;
 
